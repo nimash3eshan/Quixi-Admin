@@ -11,10 +11,10 @@ import {
 
 const user = {
   avatar: '/assets/avatars/avatar-anika-visser.png',
-  city: 'Los Angeles',
-  country: 'USA',
-  jobTitle: 'Senior Developer',
-  name: 'Anika Visser',
+  city: 'Moratuwa',
+  country: 'SL',
+  jobTitle: 'Developer',
+  name: 'Nimash Eshan',
   timezone: 'GTM-7'
 };
 

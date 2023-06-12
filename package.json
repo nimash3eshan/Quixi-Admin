@@ -1,9 +1,9 @@
 {
   "name": "material-kit-react",
   "version": "3.0.0",
-  "author": "Devias",
+  "author": "Nimash",
   "licence": "MIT",
-  "homepage": "https://devias.io",
+  "homepage": "https://nimash.dev",
   "private": false,
   "scripts": {
     "dev": "next",
@@ -23,6 +23,7 @@
     "@mui/material": "5.11.10",
     "@mui/system": "5.11.9",
     "@mui/x-date-pickers": "5.0.19",
+    "@tawk.to/tawk-messenger-react": "^2.0.2",
     "apexcharts": "3.37.0",
     "date-fns": "2.29.3",
     "formik": "2.2.9",

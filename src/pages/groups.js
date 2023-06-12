@@ -1,7 +1,7 @@
-import Head from 'next/head';
-import ArrowUpOnSquareIcon from '@heroicons/react/24/solid/ArrowUpOnSquareIcon';
-import ArrowDownOnSquareIcon from '@heroicons/react/24/solid/ArrowDownOnSquareIcon';
-import PlusIcon from '@heroicons/react/24/solid/PlusIcon';
+import Head from "next/head";
+import ArrowUpOnSquareIcon from "@heroicons/react/24/solid/ArrowUpOnSquareIcon";
+import ArrowDownOnSquareIcon from "@heroicons/react/24/solid/ArrowDownOnSquareIcon";
+import PlusIcon from "@heroicons/react/24/solid/PlusIcon";
 import {
   Box,
   Button,
@@ -10,110 +10,115 @@ import {
   Stack,
   SvgIcon,
   Typography,
-  Unstable_Grid2 as Grid
-} from '@mui/material';
-import { Layout as DashboardLayout } from 'src/layouts/dashboard/layout';
-import { CompanyCard } from 'src/sections/companies/company-card';
-import { CompaniesSearch } from 'src/sections/companies/companies-search';
+  Unstable_Grid2 as Grid,
+} from "@mui/material";
+import { Layout as DashboardLayout } from "src/layouts/dashboard/layout";
+import { GroupCard } from "src/sections/groups/group-card";
+import { GroupsSearch } from "src/sections/groups/groups-search";
 
-const companies = [
+//l   mock data
+const groups = [
   {
-    id: '2569ce0d517a7f06d3ea1f24',
-    createdAt: '27/03/2019',
-    description: 'Dropbox is a file hosting service that offers cloud storage, file synchronization, a personal cloud.',
-    logo: '/assets/logos/logo-dropbox.png',
-    title: 'Dropbox',
-    downloads: '594'
+    _id: { $oid: "6412976fc0e71b3219e9fcf5" },
+    name: "group1",
+    description: "description 1",
+    img: null,
+    budget: { $numberInt: "20000" },
+    members: [{ $oid: "6411f1b4da11e4a4275b815e" }, { $oid: "641291880780dde4f6ae3b99" }],
+    createdBy: { $oid: "641291880780dde4f6ae3b99" },
+    expenses: [],
+    createdOn: { $date: { $numberLong: "1678940015492" } },
+    updatedOn: { $date: { $numberLong: "1678940015492" } },
+    __v: { $numberInt: "0" },
   },
   {
-    id: 'ed2b900870ceba72d203ec15',
-    createdAt: '31/03/2019',
-    description: 'Medium is an online publishing platform developed by Evan Williams, and launched in August 2012.',
-    logo: '/assets/logos/logo-medium.png',
-    title: 'Medium Corporation',
-    downloads: '625'
+    _id: { $oid: "641f80db8aededff52b446c7" },
+    name: "Generic Frozen Tuna",
+    description: "International",
+    img: null,
+    budget: { $numberInt: "449" },
+    category: "general",
+    members: [
+      { $oid: "6411c532a14e5cdda9e9a272" },
+      { $oid: "6411f1b4da11e4a4275b815e" },
+      { $oid: "641291880780dde4f6ae3b99" },
+      { $oid: "641eea9b89c945dfde421797" },
+      { $oid: "641f16481459a0e0fffce903" },
+    ],
+    createdBy: { $oid: "641f16481459a0e0fffce903" },
+    expenses: [
+      { $oid: "64836881d99b2ef2ac77b13a" },
+      { $oid: "64836dc9d40b3275f25904cd" },
+      { $oid: "64836f8a6a4ed29858c22234" },
+      { $oid: "6483819ff831edd138a8181d" },
+      { $oid: "64850ecceb99d38443829e9b" },
+      { $oid: "648634e4201f410523fcdba9" },
+      { $oid: "6486353f201f410523fcdbc1" },
+      { $oid: "648635b4201f410523fcdbd6" },
+      { $oid: "648635e2201f410523fcdbe6" },
+      { $oid: "64863a293077c717fb493176" },
+      { $oid: "64863acd3077c717fb49318e" },
+    ],
+    createdOn: { $date: { $numberLong: "1679786203606" } },
+    updatedOn: { $date: { $numberLong: "1686486797909" } },
+    __v: { $numberInt: "0" },
   },
   {
-    id: 'a033e38768c82fca90df3db7',
-    createdAt: '03/04/2019',
-    description: 'Slack is a cloud-based set of team collaboration tools and services, founded by Stewart Butterfield.',
-    logo: '/assets/logos/logo-slack.png',
-    title: 'Slack',
-    downloads: '857'
+    _id: { $oid: "641fe0528aededff52b4a49c" },
+    name: "Fantastic Cotton Pizza",
+    description: "Internal",
+    img: null,
+    budget: { $numberInt: "690" },
+    category: "general",
+    members: [
+      { $oid: "6411f1b4da11e4a4275b815e" },
+      { $oid: "641291880780dde4f6ae3b99" },
+      { $oid: "6411c532a14e5cdda9e9a272" },
+      { $oid: "641f16481459a0e0fffce903" },
+    ],
+    createdBy: { $oid: "641f16481459a0e0fffce903" },
+    expenses: [{ $oid: "64872a4c1a1346a37bdc769e" }],
+    createdOn: { $date: { $numberLong: "1679810642499" } },
+    updatedOn: { $date: { $numberLong: "1679810642499" } },
+    __v: { $numberInt: "0" },
   },
-  {
-    id: '1efecb2bf6a51def9869ab0f',
-    createdAt: '04/04/2019',
-    description: 'Lyft is an on-demand transportation company based in San Francisco, California.',
-    logo: '/assets/logos/logo-lyft.png',
-    title: 'Lyft',
-    downloads: '406'
-  },
-  {
-    id: '1ed68149f65fbc6089b5fd07',
-    createdAt: '04/04/2019',
-    description: 'GitHub is a web-based hosting service for version control of code using Git.',
-    logo: '/assets/logos/logo-github.png',
-    title: 'GitHub',
-    downloads: '835'
-  },
-  {
-    id: '5dab321376eff6177407e887',
-    createdAt: '04/04/2019',
-    description: 'Squarespace provides software as a service for website building and hosting. Headquartered in NYC.',
-    logo: '/assets/logos/logo-squarespace.png',
-    title: 'Squarespace',
-    downloads: '835'
-  }
 ];
 
 const Page = () => (
   <>
     <Head>
-      <title>
-        Groups | Quixi
-      </title>
+      <title>Groups | Quixi</title>
     </Head>
     <Box
       component="main"
       sx={{
         flexGrow: 1,
-        py: 8
+        py: 8,
       }}
     >
       <Container maxWidth="xl">
         <Stack spacing={3}>
-          <Stack
-            direction="row"
-            justifyContent="space-between"
-            spacing={4}
-          >
+          <Stack direction="row" justifyContent="space-between" spacing={4}>
             <Stack spacing={1}>
-              <Typography variant="h4">
-                Groups
-              </Typography>
-              <Stack
-                alignItems="center"
-                direction="row"
-                spacing={1}
-              >
+              <Typography variant="h4">Groups</Typography>
+              <Stack alignItems="center" direction="row" spacing={1}>
                 <Button
                   color="inherit"
-                  startIcon={(
+                  startIcon={
                     <SvgIcon fontSize="small">
                       <ArrowUpOnSquareIcon />
                     </SvgIcon>
-                  )}
+                  }
                 >
                   Import
                 </Button>
                 <Button
                   color="inherit"
-                  startIcon={(
+                  startIcon={
                     <SvgIcon fontSize="small">
                       <ArrowDownOnSquareIcon />
                     </SvgIcon>
-                  )}
+                  }
                 >
                   Export
                 </Button>
@@ -121,43 +126,34 @@ const Page = () => (
             </Stack>
             <div>
               <Button
-                startIcon={(
+                startIcon={
                   <SvgIcon fontSize="small">
                     <PlusIcon />
                   </SvgIcon>
-                )}
+                }
                 variant="contained"
               >
                 Add
               </Button>
             </div>
           </Stack>
-          <CompaniesSearch />
-          <Grid
-            container
-            spacing={3}
-          >
-            {companies.map((company) => (
-              <Grid
-                xs={12}
-                md={6}
-                lg={4}
-                key={company.id}
-              >
-                <CompanyCard company={company} />
+          <GroupsSearch />
+          <Grid container spacing={3}>
+            {groups.map((group) => (
+              <Grid xs={12} md={6} lg={4} item key={group._id.$oid}>
+                <GroupCard group={group} />
               </Grid>
             ))}
           </Grid>
           <Box
             sx={{
-              display: 'flex',
-              justifyContent: 'center'
+              alignItems: "center",
+              display: "flex",
+              justifyContent: "center",
+              p: 2,
             }}
           >
-            <Pagination
-              count={3}
-              size="small"
-            />
+            <Pagination count={3} />
           </Box>
         </Stack>
       </Container>
@@ -165,10 +161,6 @@ const Page = () => (
   </>
 );
 
-Page.getLayout = (page) => (
-  <DashboardLayout>
-    {page}
-  </DashboardLayout>
-);
+Page.getLayout = (page) => <DashboardLayout>{page}</DashboardLayout>;
 
 export default Page;

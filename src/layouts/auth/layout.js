@@ -73,7 +73,7 @@ export const Layout = (props) => {
               align="center"
               color="inherit"
               sx={{
-                fontSize: '24px',
+                fontSize: '34px',
                 lineHeight: '32px',
                 mb: 1
               }}
@@ -85,20 +85,9 @@ export const Layout = (props) => {
                 sx={{ color: '#15B79E' }}
                 target="_blank"
               >
-                Devias Kit
+                Quixi Admin Panel
               </Box>
             </Typography>
-            <Typography
-              align="center"
-              sx={{ mb: 3 }}
-              variant="subtitle1"
-            >
-              A professional kit that comes with ready-to-use MUI components.
-            </Typography>
-            <img
-              alt=""
-              src="/assets/auth-illustration.svg"
-            />
           </Box>
         </Grid>
       </Grid>

@@ -7,7 +7,7 @@ const Page = () => (
   <>
     <Head>
       <title>
-        404 | Devias Kit
+        404 | Quixi Admin Panel
       </title>
     </Head>
     <Box

@@ -32,12 +32,12 @@ const states = [
 
 export const AccountProfileDetails = () => {
   const [values, setValues] = useState({
-    firstName: 'Anika',
-    lastName: 'Visser',
-    email: 'demo@devias.io',
+    firstName: 'Nimash',
+    lastName: 'Eshan',
+    email: 'nimash3eshan@gmail.com',
     phone: '',
-    state: 'los-angeles',
-    country: 'USA'
+    state: 'Moratuwa',
+    country: 'SL'
   });
 
   const handleChange = useCallback(

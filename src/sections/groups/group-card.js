@@ -3,15 +3,16 @@ import ArrowDownOnSquareIcon from '@heroicons/react/24/solid/ArrowDownOnSquareIc
 import ClockIcon from '@heroicons/react/24/solid/ClockIcon';
 import { Avatar, Box, Card, CardContent, Divider, Stack, SvgIcon, Typography } from '@mui/material';
 
-export const CompanyCard = (props) => {
-  const { company } = props;
+export const GroupCard = (props) => {
+  const { group } = props;
+  const defaultImage = 'https://picsum.photos/600/600';
 
   return (
     <Card
       sx={{
         display: 'flex',
         flexDirection: 'column',
-        height: '100%'
+        height: '100%',
       }}
     >
       <CardContent>
@@ -23,7 +24,7 @@ export const CompanyCard = (props) => {
           }}
         >
           <Avatar
-            src={company.logo}
+            src={group.img || defaultImage} // If group.img is null, use defaultImage
             variant="square"
           />
         </Box>
@@ -32,13 +33,13 @@ export const CompanyCard = (props) => {
           gutterBottom
           variant="h5"
         >
-          {company.title}
+          {group.name}
         </Typography>
         <Typography
           align="center"
           variant="body1"
         >
-          {company.description}
+          {group.description}
         </Typography>
       </CardContent>
       <Box sx={{ flexGrow: 1 }} />
@@ -66,7 +67,7 @@ export const CompanyCard = (props) => {
             display="inline"
             variant="body2"
           >
-            Updated 2hr ago
+            Budget: {group.budget.$numberInt}
           </Typography>
         </Stack>
         <Stack
@@ -85,7 +86,7 @@ export const CompanyCard = (props) => {
             display="inline"
             variant="body2"
           >
-            {company.downloads} Downloads
+            {group.members.length} Members
           </Typography>
         </Stack>
       </Stack>
@@ -93,6 +94,6 @@ export const CompanyCard = (props) => {
   );
 };
 
-CompanyCard.propTypes = {
-  company: PropTypes.object.isRequired
+GroupCard.propTypes = {
+  group: PropTypes.object.isRequired
 };
