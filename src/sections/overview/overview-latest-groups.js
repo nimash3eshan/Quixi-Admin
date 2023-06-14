@@ -33,32 +33,6 @@ export const OverviewLatestGroups = (props) => {
               divider={hasDivider}
               key={product.id}
             >
-              <ListItemAvatar>
-                {
-                  product.image
-                    ? (
-                      <Box
-                        component="img"
-                        src={product.image}
-                        sx={{
-                          borderRadius: 1,
-                          height: 48,
-                          width: 48
-                        }}
-                      />
-                    )
-                    : (
-                      <Box
-                        sx={{
-                          borderRadius: 1,
-                          backgroundColor: 'neutral.200',
-                          height: 48,
-                          width: 48
-                        }}
-                      />
-                    )
-                }
-              </ListItemAvatar>
               <ListItemText
                 primary={product.name}
                 primaryTypographyProps={{ variant: 'subtitle1' }}
